@@ -1,3 +1,25 @@
-<h1>
-  {{title}}
-</h1>
+
+<div [class.dark-theme]="flags.isDarkTheme">
+  <md-toolbar color="primary">
+    <span>
+    <md-icon>home</md-icon>
+    Welcome Avishek
+    </span>
+    <span class="margin-left-20">
+      <button md-button [routerLink]="['/movies']">Movies</button>
+    </span>
+    <span class="margin-left-20">
+      <button md-button [routerLink]="['/cards']">Cards</button>
+    </span>
+    <span class="fill-remaining-space"></span>
+    <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
+  <md-menu x-position="before" #menu="mdMenu">
+    <button md-menu-item (click)="flags.isDarkTheme=!flags.isDarkTheme"> Toggle Theme</button>
+  </md-menu>
+
+  <router-outlet></router-outlet>
+
+</div>

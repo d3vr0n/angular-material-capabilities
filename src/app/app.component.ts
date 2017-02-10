@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild,ViewContainerRef } from '@angular/core';
+import { MdSidenav, MdDialog,MdDialogConfig } from '@angular/material';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  public flags:any = <any>{
+    isDarkTheme : false
+  };
+
+  //@ViewChild('sidenav') sidenav:MdSidenav;
+
+
+
 }
