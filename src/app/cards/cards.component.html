@@ -1,3 +1,53 @@
-<p>
-  cards works!
+<p class="margin-10">
+  <md-toolbar color="lightblue">
+        <label md-label>Choose Higher or Lower : </label>
+        <button md-button (click)="higherClickHandler()">Higher</button>
+        <button md-button (click)="lowerClickHandler()">Lower</button>
+        <a *ngIf="message" md-mini-fab (click)="tryAgainHandler()"><md-icon>cached</md-icon></a>
+        <span class="blink color-red">{{message}}</span>
+        <span class="blink color-red">{{status}}</span>
+        
+  </md-toolbar>
+  <md-card >
+    <md-card-content>
+      <p class="button-row">
+        <button md-raised-button (click)="createDeck()">Create Deck</button>        
+      </p>
+      <p class="button-row">
+        <button md-raised-button (click)="drawTwoCards()">Draw Cards</button>        
+      </p>
+      <p class="button-row">
+        <label>Deck ID : {{!!deckId ? deckId : 'Click on Create Deck'}}</label>       
+      </p>
+      <p>
+        <md-grid-list cols="4" rowHeight="30px">
+          <md-grid-tile [colspan]="1" [rowspan]="1" [style.background]="lightgreen">
+            Dealer
+          </md-grid-tile>
+           <md-grid-tile [colspan]="1" [rowspan]="1" [style.background]="lightgreen">
+            Opponent
+          </md-grid-tile>
+        </md-grid-list>
+        <md-grid-list cols="4" rowHeight="500px">
+          <md-grid-tile [colspan]="1" [rowspan]="1" [style.background]="lightgreen">
+            <md-card class="">
+              <md-card-header>
+                <md-card-title>{{deckOfCards[0].value}} of {{deckOfCards[0].suit}}</md-card-title>
+              </md-card-header>
+              <img width="50px" md-card-image [src]="deckOfCards[0].image">
+            </md-card>
+          </md-grid-tile>
+           <md-grid-tile [colspan]="1" [rowspan]="1" [style.background]="lightgreen">
+            <md-card *ngIf="showCard">
+              <md-card-header>
+                <md-card-title>{{deckOfCards[1].value}} of {{deckOfCards[1].suit}}</md-card-title>
+              </md-card-header>
+              <img  width="50px" md-card-image [src]="deckOfCards[1].image">
+            </md-card>
+          </md-grid-tile>
+        </md-grid-list>
+      </p>
+      
+    </md-card-content>
+  </md-card>
 </p>

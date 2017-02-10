@@ -37,13 +37,10 @@ export class MoviesComponent implements OnInit {
           });
   }
   getMovieCreditListById(id:string){
-    this.movieSvc.getMovieCreditDetails(this.selectedMovie.id)
+    this.movieSvc.getMovieCreditDetails(id)
     .subscribe(resp => {
             this.movieCastList = resp;
           });
-  }
-  printSelectedMovie(){
-    window.console.debug(this.selectedMovie);
   }
 
   ngOnInit() {
